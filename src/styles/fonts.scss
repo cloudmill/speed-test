@@ -1,0 +1,10 @@
+$files: (("Stem-Regular", 400), ("Stem-Medium", 500), ("Stem-Bold", 700));
+
+@each $filename, $font-weight in $files {
+  @font-face {
+    src: font-url($filename);
+
+    font-family: $ff-primary;
+    font-weight: $font-weight;
+  }
+}

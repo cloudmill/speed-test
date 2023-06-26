@@ -1,0 +1,70 @@
+.breadcrumbs {
+  $comp: &;
+  margin-bottom: rem(32px);
+  @media (max-width: ($breakpoint - 1px)) {
+    margin-bottom: rem(16px);
+    padding: 0 rem(20px);
+    margin-left: rem(-20px);
+
+    width: calc(100% + #{rem(20px)} * 2);
+    display: flex;
+
+    overflow-y: scroll;
+    @include scrollbar-hidden;
+  }
+
+  display: flex;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+    z-index: 0;
+
+    display: flex;
+
+    white-space: nowrap;
+    @include fsl(14px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+
+    &:not(:first-child) {
+      margin-left: rem(24px);
+      padding-left: rem(33px);
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-left: rem(12px);
+        padding-left: rem(21px);
+      }
+      
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+  
+        width: rem(9px);
+        height: rem(9px);
+  
+        background-image: url("data:image/svg+xml,%3Csvg width='9' height='10' viewBox='0 0 9 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.85077C0 3.34334 2.84334 0.5 6.35077 0.5H9V3.14923C9 6.65666 6.15666 9.5 2.64923 9.5H0V6.85077Z' fill='%23F5D76B'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+  }
+
+  &__link {
+    color: color(gray);
+    transition: $transition;
+
+    &:hover {
+      color: color(blue);
+    }
+  }
+}

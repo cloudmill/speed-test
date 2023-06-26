@@ -1,0 +1,37 @@
+.swiper-pagination {
+
+  &--custom {
+    top: calc(100% + #{rem(12px)}) !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    @media (max-width: ($breakpoint - 1px)) {
+      display: flex;
+      justify-content: center;
+    }
+    display: none;
+
+
+    .swiper-pagination-bullet {
+      margin-left: rem(20px) !important;
+      margin-right: 0 !important;
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-left: rem(6px) !important;
+      }
+
+      width: rem(16px);
+      height: rem(2px);
+
+      border-radius: 0;
+      background: color(black);
+      opacity: 0.3;
+
+      &:first-child {
+        margin-left: 0 !important;
+      }
+
+      &-active {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,644 @@
+
+.modal-close {
+  $comp: &;
+  --size: #{rem(50px)};
+  @media (max-width: ($breakpoint - 1px)) {
+    --size: #{rem(32px)};
+  }
+  position: relative;
+  z-index: 0;
+
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: rem(4px);
+  border: 2px solid color(borders);
+  cursor: pointer;
+  overflow: hidden;
+  transition: $transition;
+
+  &:hover {
+    border-color: color(blue);
+
+    &::after {
+      transform: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: color(yellow-hover);
+    transform: translateY(-110%);
+    transition: $transition;
+  }
+
+  &--light {
+    @media (max-width: ($breakpoint - 1px)) {
+      width: auto;
+      height: auto;
+    }
+    border: 2px solid rgba(#fff, 0.2);
+
+    #{$comp}__svg {
+      @media (max-width: ($breakpoint - 1px)) {
+        --size: #{rem(24px)};
+      }
+      path {
+        fill: color(white);
+        @media (max-width: ($breakpoint - 1px)) {
+          fill: color(black);
+        }
+      }
+    }
+  }
+
+  &--white {
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(40px)};
+    }
+    border-color: rgba(#fff, 0.2);
+
+    #{$comp}__svg {
+      
+      path {
+        fill: color(white);
+      }
+    }
+  }
+
+  &__svg {
+    --size: #{rem(24px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(16px)};
+    }
+
+    width: var(--size);
+    height: var(--size);
+  }
+}
+
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  @media (max-width: ($breakpoint - 1px)) {
+    right: rem(20px);
+  }
+
+  display: none;
+
+  background-color: color(white);
+  @include styled-scrollbar;
+
+  &__container {
+    padding: rem(90px) rem(60px) rem(60px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(20px) rem(20px) rem(40px);
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    @include fsl(36px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(18px);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(20px);
+    right: rem(20px);
+    z-index: 1;
+    @media (max-width: ($breakpoint - 1px)) {
+      top: rem(12px);
+    }
+  }
+}
+
+.form-modal {
+
+  display: none;
+  width: rem(760px);
+  @media (max-width: ($breakpoint - 1px)) {
+    margin: 0 rem(20px);
+    width: auto;
+  }
+
+  background-color: color(white);
+  border-radius: rem(4px);
+  overflow: visible;
+
+  &__container {
+    padding: rem(80px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(32px) rem(20px);
+    }
+  }
+
+  &__title {
+    margin: 0 auto;
+    max-width: rem(501px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: 0;
+      max-width: none;
+    }
+    text-align: center;
+    font-weight: 500;
+    color: color(blue);
+    @include fsl(24px, 120%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(16px, 120%);
+    }
+  }
+
+  &__form {
+    margin-top: rem(48px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(32px);
+    }
+  }
+
+  &__inner {
+    margin-top: rem(12px);
+    display: flex;
+    align-items: center;
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(20px);
+      display: block;
+    }
+  }
+
+  &__button {
+    margin-left: rem(60px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-left: 0;
+      margin-top: rem(20px);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    left: calc(100% + #{rem(10px)});
+    bottom: calc(100% + #{rem(10px)});
+    @media (max-width: ($breakpoint - 1px)) {
+      bottom: auto;
+      left: auto;
+      top: rem(12px);
+      right: rem(12px);
+    }
+  }
+}
+
+.filters-modal {
+  @media (max-width: ($breakpoint - 1px)) {
+    right: rem(65px);
+  }
+
+  &__inner {
+    margin-top: rem(20px);
+  }
+
+  &__list {
+    border-bottom: 1px solid color(borders);
+  }
+
+  &__item {
+    border-top: 1px solid color(borders);
+  }
+
+  &__label {
+    padding: rem(7px) 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  &__text {
+    @include fsl(14px, 100%);
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: rem(10px);
+    left: rem(20px);
+    right: rem(20px);
+    z-index: 1;
+  }
+
+  &__bot {
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    margin-right: rem(12px);
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__picture {
+    width: rem(70px);
+    height: rem(40px);
+    flex-shrink: 0;
+  }
+}
+
+.recipe-modal {
+
+  width: rem(1000px);
+  @media (max-width: ($breakpoint - 1px)) {
+    width: auto;
+    overflow-x: hidden;
+  }
+
+  p {
+    @include fsl(20px, 150%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(14px);
+    }
+  }
+
+  &__top {
+    margin-top: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(12px);
+    }
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__category {
+    margin-right: rem(40px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-right: rem(12px);
+    }
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+  }
+  &__time-text {
+    line-height: 100%;
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+
+  &__icon {
+    margin-right: rem(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__svg {
+    --size: #{rem(22px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(16px)};
+    }
+    width: var(--size);
+    height: var(--size);
+  }
+
+  &__slider {
+    margin-top: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(16px);
+    }
+  }
+
+  &__inner {
+    margin-top: rem(60px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(32px);
+    }
+  }
+
+  &__list{
+    margin-top: rem(40px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(20px);
+    }
+  }
+
+  &__item {
+    padding-bottom: rem(20px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding-bottom: rem(8px);
+    }
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid color(borders);
+
+    &:not(:first-child) {
+      margin-top: rem(20px);
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-top: rem(8px);
+      }
+    }
+  }
+
+  &__label {
+    color: color(gray);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+  
+  &__text {
+    margin-left: rem(10px);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    z-index: 0;
+
+    overflow: hidden;
+    @media (max-width: ($breakpoint - 1px)) {
+      overflow: visible;
+    }
+  }
+
+  &__btns {
+    position: absolute;
+    top: rem(20px);
+    left: rem(292px);
+    z-index: 2;
+    @media (max-width: ($breakpoint - 1px)) {
+      display: none;
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (max-width: ($breakpoint - 1px)) {
+      display: block;
+      width: rem(260px);
+    }
+  }
+
+  &__col {
+    &:nth-child(1) {
+      flex-shrink: 0;
+      width: rem(420px);
+      @media (max-width: ($breakpoint - 1px)) {
+        width: 100%;
+      }
+    }
+    &:nth-child(2) {
+      margin-left: rem(40px);
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-left: 0;
+        margin-top: rem(16px);
+      }
+    }
+  }
+
+  &__img {
+    border-radius: rem(4px);
+    overflow: hidden;
+  }
+
+  &__title {
+    margin-bottom: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(12px);
+    }
+    font-weight: 500;
+    @include fsl(36px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(18px);
+    }
+  }
+
+  &__list {}
+  &__list-item {
+    position: relative;
+    z-index: 0;
+    padding-left: rem(44px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding-left: rem(32px);
+    }
+
+    line-height: 150%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: rem(4px);
+      z-index: 1;
+
+      width: rem(24px);
+      height: rem(12px);
+      @media (max-width: ($breakpoint - 1px)) {
+        width: rem(20px);
+        height: rem(10px);
+      }
+
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='12' viewBox='0 0 24 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.46769 12C3.79111 12 -1.65715e-07 8.20889 -3.70134e-07 3.53231L-5.24537e-07 0L3.53231 -1.54402e-07C8.20889 -3.58822e-07 12 3.79111 12 8.46769L12 12L8.46769 12Z' fill='%23F5D76B'/%3E%3Cpath d='M12 8.46769C12 3.79111 15.7911 0 20.4677 0H24V3.53231C24 8.20889 20.2089 12 15.5323 12H12V8.46769Z' fill='%23F5D76B'/%3E%3C/svg%3E%0A");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:not(:first-child) {
+      margin-top: rem(12px);
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-top: rem(8px);
+      }
+    }
+  }
+}
+
+.response-modal {
+  display: none;
+  width: rem(574px);
+  @media (max-width: ($breakpoint - 1px)) {
+    width: calc(100% - rem(40px));
+  }
+
+  background-color: color(white);
+  border-radius: rem(4px);
+
+  &__container {
+    padding: rem(60px) 0;
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(37px) 0;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(16px);
+    }
+    @include fsl(24px, 120%);
+    font-weight: 500;
+  }
+
+  &__text {
+    margin-top: rem(16px);
+    max-width: rem(352px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(8px);
+      max-width: rem(224px);
+      @include fsl(12px);
+    }
+    text-align: center;
+    @include fsl(16px, 140%);
+  }
+
+  &__btn {
+    margin-top: rem(40px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(16px);
+    }
+  }
+}
+
+.media-modal {
+  $comp: &;
+  @media (max-width: ($breakpoint - 1px)) {
+    position: static;
+  }
+  display: none;
+  background: transparent;
+  overflow: visible;
+
+  &.video {
+
+    #{$comp}__media {
+      display: none;
+    }
+
+    #{$comp}__video {
+      display: block;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 0;
+    margin: auto;
+    @media (max-width: ($breakpoint - 1px)) {
+      position: static;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__media {
+    max-width: calc(100vw - #{rem(130px)});
+    max-height: calc(100vh - #{rem(130px)});
+    @media (max-width: ($breakpoint - 1px)) {
+      max-width: calc(100vw - #{rem(40px)});
+    }
+  }
+
+  &__video {
+    max-width: calc(100vw - #{rem(130px)});
+    max-height: calc(100vh - #{rem(130px)});
+    @media (max-width: ($breakpoint - 1px)) {
+      max-width: calc(100vw - #{rem(40px)});
+    }
+    display: none;
+  }
+
+  &__close {
+    position: absolute;
+    z-index: 1;
+    bottom: calc(100% + #{rem(10px)});
+    left: calc(100% + #{rem(10px)});
+    @media (max-width: ($breakpoint - 1px)) {
+      top: rem(20px);
+      right: rem(20px);
+      bottom: auto;
+      left: auto;
+    }
+  }
+}
+
+.modal-dark {
+
+  .fancybox-bg {
+    background: rgba(color(black), 0.8);
+  }
+}
+
+.fancybox-button.fancybox-close-small {
+  display: none;
+}
+
+/* Custom animation slide-in-out */
+.fancybox-fx-right-left.fancybox-slide--previous {
+  transform: translateX(100%);
+  @media (max-width: ($breakpoint - 1px)) {
+    transform: translateX(-100%);
+  }
+}
+
+.fancybox-fx-right-left.fancybox-slide--next {
+  transform: translateX(100%);
+  @media (max-width: ($breakpoint - 1px)) {
+    transform: translateX(-100%);
+  }
+}
+
+.fancybox-fx-right-left.fancybox-slide--current {
+  transform: translateX(0);
+}
+
+.fancybox-fx-left.fancybox-slide--previous {
+  transform: translateX(-100%);
+}
+
+.fancybox-fx-left.fancybox-slide--next {
+  transform: translateX(-100%);
+}
+
+.fancybox-fx-left.fancybox-slide--current {
+  transform: translateX(0);
+}
+
+.fancybox-fx-top.fancybox-slide--previous {
+  transform: translateY(-100%);
+}
+
+.fancybox-fx-top.fancybox-slide--next {
+  transform: translateY(-100%);
+}
+
+.fancybox-fx-top.fancybox-slide--current {
+  transform: translateY(0);
+}

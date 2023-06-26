@@ -1,0 +1,137 @@
+.content {
+
+  strong {
+    font-weight: 500;
+  }
+
+  em {
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  h1 {
+    margin-bottom: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(16px);
+      @include fsl(24px);
+    }
+    @include fsl(48px, 100%);
+    font-weight: 500;
+  }
+  h2 {
+    margin-bottom: rem(24px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(12px);
+      @include fsl(18px);
+    }
+    @include fsl(36px, 100%);
+    font-weight: 500;
+  }
+  h3 {
+    margin-bottom: rem(20px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(10px);
+      @include fsl(18px);
+    }
+    @include fsl(36px, 100%);
+    font-weight: 500;
+  }
+  h4 {
+    margin-bottom: rem(16px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(8px);
+      @include fsl(10px);
+    }
+    @include fsl(20px, 100%);
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: rem(24px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(16px);
+    }
+
+    @include fsl(16px, 150%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+
+  ul, ol {
+    margin-bottom: rem(32px);
+    padding-right: calc(#{$col-part-d});
+    @media (max-width: ($breakpoint - 1px)) {
+      padding-right: 0;
+    }
+
+    li {
+      position: relative;
+      z-index: 0;
+      padding-left: rem(44px);
+      @media (max-width: ($breakpoint - 1px)) {
+        padding-left: rem(32px);
+        @include fsl(12px);
+      }
+      @include fsl(16px, 150%);
+      
+
+      &:not(:first-child) {
+        margin-top: rem(20px);
+      }
+    }
+  }
+
+  ul {
+    li {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: rem(6px);
+        left: 0;
+        @media (max-width: ($breakpoint - 1px)) {
+          top: rem(4px);
+          width: rem(20px);
+          height: rem(10px);
+        }
+        width: rem(24px);
+        height: rem(12px);
+
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='12' viewBox='0 0 24 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.46769 12C3.79111 12 -1.65715e-07 8.20889 -3.70134e-07 3.53231L-5.24537e-07 0L3.53231 -1.54402e-07C8.20889 -3.58822e-07 12 3.79111 12 8.46769L12 12L8.46769 12Z' fill='%23F5D76B'/%3E%3Cpath d='M12 8.46769C12 3.79111 15.7911 0 20.4677 0H24V3.53231C24 8.20889 20.2089 12 15.5323 12H12V8.46769Z' fill='%23F5D76B'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: index;
+
+    li {
+      counter-increment: index;
+
+      &::before {
+        content: counter(index);
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: rem(20px);
+        height: rem(20px);
+
+        color: color(blue);
+        font-weight: 500;
+        @include fsl(16px, 150%);
+      }
+    }
+  }
+
+  &__content {
+    margin-top: rem(100px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(32px);
+    }
+  }
+}

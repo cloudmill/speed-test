@@ -1,0 +1,58 @@
+mixin footer
+  -
+    var ddata = [
+      {
+        heading: 'О холдинге',
+        links: ['БКХ «Коломенский»', 'События', 'Учредительные документы', 'Раскрытие информации', 'Контакты', ]
+      },
+      {
+        heading: 'Покупателю',
+        links: ['Где купить', 'Натурально и вкусно', ]
+      },
+      {
+        heading: 'Партнерам и бизнесу',
+        links: ['Клиентам', 'Поставщикам',]
+      },
+    ]
+  footer.footer
+    .footer__inner
+      .container
+        .footer__row
+          .footer__col
+            a.footer__phone(href='tel:88002341467')
+              | 8 800 234 14 67
+            .footer__caption
+              | Горячая линия по вопросам качества продукции
+          .footer__col.footer__col--grid
+            each item in ddata
+              .footer__item
+                .footer__heading
+                  | #{ item.heading }
+                ul.footer__list
+                  each link in item.links
+                    li.footer__list-item
+                      a.footer__link(href='#')
+                        | #{ link }
+        .footer__block
+          .footer__row.footer__row--flex
+            .footer__col
+              .footer__wrapper
+                +button(data-fancy-button='ask-director')
+                  | Задать вопрос директору
+            .footer__col
+              .footer__btn
+                +button-icon.button--gray.button--wide-mobile(
+                  text='Наверх',
+                  data-scroll-up='',
+                  block
+                )
+                  +arrow-up-svg.button__svg
+    .footer__bot
+      .container
+        .footer__row
+          .footer__col
+            .footer__corp
+              | © 2022 ЗАО БКК «Коломенский»
+          .footer__col
+            .footer__made
+              | Сделано в #[a.footer__made-link(href='#', target='_blank') CloudMill]

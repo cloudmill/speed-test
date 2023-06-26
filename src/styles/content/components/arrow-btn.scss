@@ -1,0 +1,52 @@
+.arrow-btn {
+  --size: #{rem(68px)};
+  position: relative;
+  z-index: 0;
+
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid color(borders);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: color(white);
+  transition: $transition;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: translateY(-110%);
+
+    width: 100%;
+    height: 100%;
+
+    background-color: color(blue);
+    transition: $transition;
+  }
+
+  &:hover {
+    border-color: color(blue);
+    
+    &::after {
+      transform: none;
+    }
+  }
+
+  &__svg {
+    --size: #{rem(24px)};
+    position: relative;
+    z-index: 1;
+
+    width: var(--size);
+    height: var(--size);
+
+    transform: rotate(-90deg);
+  }
+}

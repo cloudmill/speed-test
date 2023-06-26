@@ -1,0 +1,47 @@
+
+mixin input
+  .input-wrapper(data-input-parent='')
+    .input-wrapper__placeholder
+      |#{attributes.placeholder}
+    input.input(data-input='' required)&attributes(attributes)
+
+mixin textarea
+  .input-wrapper(data-input-parent='')
+    .input-wrapper__placeholder
+      |#{attributes.placeholder}
+    textarea.textarea(data-input='')&attributes(attributes)
+
+mixin checkbox 
+  .checkbox(class=attributes.class)
+    label.checkbox__label
+      input.checkbox__input(type="checkbox" required=(!attributes.required ? true : false) id=attributes.id checked=attributes.checked)
+      .checkbox__box 
+        +check-svg.checkbox__svg
+      if (attributes.text)
+        .checkbox__caption 
+          |#{attributes.text}
+      else 
+        .checkbox__text 
+          |Даю согласие на обработку #[a.checkbox__link(href="#") персональных данных]
+
+mixin select
+  .select-wrapper(class=attributes.wrapperClass id=attributes.wrapperId)
+    .select(class=attributes.class)
+      select.select__select(data-select-placeholder=attributes.placeholder style='width: 100%' required=attributes.required)
+        if (attributes.placeholder)
+          option(value='' disabled selected)
+        each item in attributes.options
+          option(value=item)
+            |#{item}
+
+mixin file-input 
+  .file-input(data-file='')
+    label.file-input__label
+      input.file-input__input(type="file" multiple accept=(attributes.accept ? attributes.accept : null) data-file-input='')
+      .file-input__icon   
+        +paperclip-svg.file-input__svg 
+      .file-input__text 
+        |Прикрепить файл
+    .file-input__allowed 
+      |Допустимое расширение файлов .doc, .docx, .pdf, .pages, .pttx, .ppt, .xlsx, .xls. Размер файла не более 10 мб
+    .file-input__files(data-file-files='')

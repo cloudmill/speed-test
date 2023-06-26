@@ -1,0 +1,15 @@
+
+mixin nav
+  .nav 
+    //- .nav__heading 
+      |#{attributes.heading}
+    ul.nav__list
+      each item, i in attributes.links
+        if (attributes.active === i) 
+          li.nav__item 
+            .nav__link.active
+              |#{item}
+        else
+          li.nav__item 
+            a.nav__link(href="#") 
+              |#{item}

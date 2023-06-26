@@ -1,0 +1,63 @@
+.store {
+  position: relative;
+  z-index: 0;
+  margin: -1px;
+
+  display: block;
+  height: rem(239px);
+  @media (max-width: ($breakpoint - 1px)) {
+    margin: 0;
+    height: rem(153px);
+  }
+  @media (max-width: ($breakpoint-m - 1px)) {
+    height: rem(143px);
+  }
+
+  border: 1px solid color(borders);
+  transition: $transition;
+  
+  &:hover {
+    border-color: color(blue);
+  }
+
+  &--slider {
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-shrink: 0;
+      width: rem(124px);
+      height: rem(100px);
+    }
+  }
+
+  &__container {
+    padding: rem(18px) rem(33px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(9px) rem(18px);
+    }
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: rem(20px);
+    right: rem(20px);
+    z-index: 1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__svg {
+    --size: #{rem(24px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(16px)};
+    }
+
+    width: var(--size);
+    height: var(--size);
+  }
+}

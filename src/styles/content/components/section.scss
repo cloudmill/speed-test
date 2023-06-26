@@ -1,0 +1,129 @@
+.section {
+  &--first {
+    margin-top: rem(160px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(56px);
+    }
+  }
+
+  &--under-header {
+    margin-top: rem(100px);
+    @media #{media('<')} {
+      margin-top: rem(52px);
+    }
+  }
+
+  &--last {
+    margin-bottom: rem(120px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(34px);
+    }
+  }
+
+  &--mid {
+    margin-top: rem(100px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(32px);
+    }
+
+    &.small {
+      @media #{media(">")} {
+        margin-top: rem(60px);
+      }
+    }
+  }
+
+  &--regular {
+    margin-top: rem(120px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(32px);
+    }
+
+    &.small {
+      @media #{media(">")} {
+        margin-top: rem(60px);
+      }
+    }
+  }
+
+  &--40 {
+    margin-top: rem(40px);
+    @media #{media('<')} {
+      margin-top: rem(32px);
+    }
+  }
+
+  &--hidden {
+    overflow: hidden;
+  }
+
+  &__offset {
+    margin-top: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(16px);
+    }
+  }
+
+  &__inner {
+    margin-top: rem(60px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(20px);
+    }
+
+    &--title {
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-top: rem(16px);
+      }
+    }
+  }
+
+  &__title {
+    color: color(blue);
+    font-weight: 500;
+    @include fsl(48px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(20px);
+    }
+  }
+
+  &__big-title {
+    @include fsl(60px, 100%);
+    font-weight: 500;
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(20px);
+    }
+  }
+
+  &__heading {
+    font-weight: 500;
+    color: color(blue);
+    @include fsl(36px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(18px);
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (max-width: ($breakpoint - 1px)) {
+      display: block;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      width: calc(#{$col-part-d} * 3);
+      @media (max-width: ($breakpoint - 1px)) {
+        display: none;
+      }
+    }
+    &:nth-child(2) {
+      width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+      @media (max-width: ($breakpoint - 1px)) {
+        width: auto;
+      }
+    }
+  }
+}

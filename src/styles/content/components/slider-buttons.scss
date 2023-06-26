@@ -1,0 +1,37 @@
+.slider-buttons {
+  $comp: &;
+
+  display: flex;
+
+  &--vertical {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    pointer-events: none;
+
+    #{$comp}__item {
+      pointer-events: all;
+    }
+
+    .arrow-btn__svg {
+      transform: rotate(0deg);
+    }
+
+    #{$comp}__svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__item {
+
+    &:not(:first-child) {
+      margin-left: rem(8px);
+    }
+  }
+
+  &__svg {
+    transform: rotate(90deg);
+  }
+}

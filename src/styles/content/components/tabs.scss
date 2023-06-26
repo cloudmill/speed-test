@@ -1,0 +1,58 @@
+.tabs {
+  $comp: &;
+
+  display: flex;
+
+  &--scroll {
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 rem(20px);
+      margin-left: rem(-20px);
+
+      width: calc(100% + #{rem(40px)});
+
+      overflow-y: auto;
+      @include scrollbar-hidden;
+    }
+
+    #{$comp}__item {
+      white-space: nowrap;
+    }
+  }
+
+  &__item {
+    padding-bottom: rem(8px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 rem(12px);
+
+      height: rem(30px);
+
+      @include fsl(14px);
+    }
+    display: flex;
+    align-items: center;
+
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    @include fsl(24px, 100%);
+    transition: $transition;
+    color: color(gray);
+
+    &:hover {
+      color: color(blue);
+      border-color: color(blue);
+    }
+
+    &.active {
+      color: color(blue);
+      border-color: color(blue);
+      cursor: default;
+    }
+
+    &:not(:first-child) {
+      margin-left: rem(23px);
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-left: rem(4px);
+      }
+    }
+  }
+}

@@ -1,0 +1,162 @@
+.product {
+  $comp: &;
+
+  display: block;
+  // width: rem(420px);
+  width: 100%;
+  min-height: rem(432px);
+  @media (max-width: ($breakpoint - 1px)) {
+    min-height: rem(297px);
+  }
+
+  border: 2px solid color(borders);
+  border-radius: rem(8px);
+  transition: $transition;
+
+  &:hover {
+    border-color: color(blue);
+
+    #{$comp}__picture {
+      transform: scale(1.1);
+    }
+  }
+
+  &--slide {
+    width: rem(420px);
+    @media (max-width: ($breakpoint - 1px)) {
+      width: rem(300px);
+    }
+    #{$comp}__picture {
+      --size: #{rem(260px)};
+      margin-bottom: rem(32px);
+      @media (max-width: ($breakpoint - 1px)) {
+        --size: #{rem(200px)};
+        margin-bottom: rem(10px);
+      }
+    }
+  }
+
+  &__container {
+    padding: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(12px) rem(20px) rem(20px);
+    }
+    position: relative;
+    z-index: 0;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__icon {
+    --pad: #{rem(20px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --pad: #{rem(12px)};
+    }
+    position: absolute;
+    left: var(--pad);
+    top: var(--pad);
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__svg {
+    flex-shrink: 0;
+    width: rem(74px);
+    height: rem(32px);
+    @media (max-width: ($breakpoint - 1px)) {
+      width: rem(49px);
+      height: rem(21px);
+    }
+  }
+
+  &__labels {
+    --pad: #{rem(20px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --pad: #{rem(12px)};
+    }
+    position: absolute;
+    right: var(--pad);
+    top: var(--pad);
+    z-index: 1;
+  }
+
+  &__new {
+    margin-bottom: rem(12px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(8px);
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__label-svg {
+    --size: #{rem(67px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(58px)};
+    }
+
+    flex-shrink: 0;
+    width: var(--size);
+    height: var(--size);
+  }
+
+  &__image {
+    margin-bottom: rem(20px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: rem(10px);
+    }
+
+    display: flex;
+    justify-content: center;
+  }
+
+  &__picture {
+    --size: #{rem(304px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(220px)};
+    }
+
+    width: var(--size);
+    height: var(--size);
+
+    transition: $transition;
+  }
+
+  &__type {
+    margin-bottom: rem(12px);
+
+    display: flex;
+  }
+
+  &__name {
+    font-weight: 500;
+    @include fsl(18px, 120%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(14px);
+    }
+  }
+
+  &__empty {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-transform: uppercase;
+    @include fsl(20px, 100%);
+    font-weight: 500;
+    color: color(gray);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(16px);
+    }
+  }
+}

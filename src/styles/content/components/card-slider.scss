@@ -1,0 +1,266 @@
+.card-slider {
+  $comp: &;
+  @media (max-width: ($breakpoint-m - 1px)) {
+    padding-bottom: rem(12px);
+  }
+
+  &--alt {
+    #{$comp}__slider {
+      height: 100%;
+
+      border-radius: rem(4px);
+      overflow: hidden;
+    }
+
+    #{$comp}__col {
+
+      &:nth-child(2) {
+        width: rem(727px);
+        @media (max-width: ($breakpoint - 1px)) {
+          width: 70%;
+        }
+        @media (max-width: ($breakpoint-m - 1px)) {
+          width: 100%;
+        }
+        border: none;
+        border-radius: 0;
+
+        .swiper-slide {
+          overflow: hidden;
+
+          &.swiper-slide-active {
+            z-index: 2;
+          }
+        }
+      }
+
+      #{$comp}__image {
+        width: 100%;
+        // height: auto;
+        height: 100%;
+      }
+
+      #{$comp}__thumb {
+        height: rem(75px);
+      }
+    }
+  }
+
+  &--gallery {
+    .swiper-slide {
+      cursor: pointer;
+    }
+
+    #{$comp}__row {
+      @media (max-width: ($breakpoint - 1px)) {
+        justify-content: center;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      margin-right: $col-gap-d;
+      position: relative;
+      z-index: 0;
+
+      width: rem(113px);
+      // width: calc(#{$col-width-d});
+      @media (max-width: ($breakpoint - 1px)) {
+        display: none;
+      }
+    }
+    &:nth-child(2) {
+      position: relative;
+      z-index: 0;
+
+      width: calc(#{$col-part-d} * 4 - #{$col-gap-d});
+      @media (max-width: ($breakpoint - 1px)) {
+        width: 100%;
+      }
+
+      border: 2px solid color(borders);
+      border-radius: rem(4px);
+    }
+  }
+
+  &__container {
+    --size: #{rem(574px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(335px)};
+    }
+    position: relative;
+    z-index: 0;
+
+    width: var(--size);
+    height: var(--size);
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    --pad: #{rem(24px)};
+    position: absolute;
+    top: var(--pad);
+    right: var(--pad);
+    @media (max-width: ($breakpoint - 1px)) {
+      left: rem(12px);
+      right: auto;
+      top: rem(12px);
+    }
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__svg {
+    width: rem(74px);
+    height: rem(32px);
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+    --size: #{rem(425px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(273px)};
+    }
+
+    width: var(--size);
+    height: var(--size);
+
+    overflow: hidden;
+
+    &:hover {
+      @media (min-width: $breakpoint) {
+        .svg-bg {
+          fill: color(blue);
+        }
+        .svg-arrow {
+          fill: color(black);
+        }
+        .svg-layout {
+          opacity: 0;
+        }
+  
+        #{$comp}__picture {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__picture {
+    position: relative;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    transition: $transition
+  }
+
+  &__thumbs {
+    margin: rem(110px) 0;
+    padding: rem(2px) 0;
+
+    height: rem(355px);
+
+    overflow: hidden;
+
+    .swiper-container {
+      height: 100%;
+    }
+  }
+
+  &__thumb {
+    --size: #{rem(113px)};
+    position: relative;
+    z-index: 0;
+
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 4px solid transparent;
+    transition: $transition;
+    border-radius: rem(4px);
+    cursor: pointer;
+    
+    &:hover {
+      border-color: color(blue);
+    }
+
+    &.active {
+      border-color: color(blue);
+    }
+
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__thumb-img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &__slider {
+    overflow: hidden;
+  }
+
+  &__buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    pointer-events: none;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__play-svg {
+    --size: #{rem(100px)};
+    
+    width: var(--size);
+    height: var(--size);
+
+    &.small {
+      --size: #{rem(30px)};
+    }
+
+    rect, path {
+      transition: $transition
+    }
+
+    &:hover {
+      
+    }
+  }
+}

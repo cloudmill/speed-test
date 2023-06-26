@@ -1,0 +1,152 @@
+.accordion {
+  $comp: &;
+
+  background-color: color(gray-light);
+  border: 2px solid transparent;
+  border-radius: rem(4px);
+  transition: $transition;
+
+  &:hover {
+    background-color: color(white);
+    border-color: color(blue);
+  }
+
+  &.active {
+    background-color: color(white);
+    border-color: color(blue);
+
+    #{$comp}__icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__head {
+    padding: rem(40px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(16px) rem(20px);
+    }
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+  }
+
+  &__title {
+    margin-right: rem(64px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-right: rem(30px);
+      @include fsl(14px);
+    }
+    font-weight: 500;
+    @include fsl(24px, 120%);
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__download {
+    margin-right: rem(116px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-right: 0;
+      margin-bottom: rem(16px);
+    }
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      #{$comp}__download-text {
+        color: color(blue);
+      }
+      #{$comp}__download-svg {
+        path {
+          fill: color(blue);
+        }
+      }
+    }
+  }
+  &__download-text {
+    transition: $transition;
+    line-height: 100%;
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+  &__download-icon {
+    margin-left: rem(8px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-left: rem(4px);
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__download-svg {
+    --size: #{rem(20px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(12px)};
+    }
+    width: var(--size);
+    height: var(--size);
+
+    path {
+      transition: $transition;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: $transition;
+  }
+
+  &__svg {
+    --size: #{rem(32px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(16px)};
+    }
+    width: var(--size);
+    height: var(--size);
+  }
+
+  &__body {
+    padding: 0 rem(40px) rem(40px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 rem(20px) rem(20px);
+    }
+    display: none;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(12px);
+    @media (max-width: ($breakpoint - 1px)) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(8px);
+    }
+    @media (max-width: ($breakpoint-m - 1px)) {
+      grid-template-columns: 1fr;
+      gap: rem(4px);
+    }
+  }
+
+  &__wrapper {
+    margin-left: rem(114px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-left: 0;
+      width: auto;
+    }
+    width: rem(727px);
+
+    &.content ul {
+      padding-right: 0;
+    }
+  }
+}

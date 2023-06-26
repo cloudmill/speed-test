@@ -1,0 +1,36 @@
+.category {
+  padding: rem(6px) rem(8px);
+
+  @include fsl(12px, 100%);
+  border-radius: rem(4px);
+  background-color: color(brown);
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(10px);
+  }
+
+  &--gray {
+    background-color: color(new-secondary)
+  }
+
+  &--big {
+    @include fsl(16px);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(10px);
+    }
+  }
+
+  &--recipe {
+    background-color: color(new-secondary);
+    @include fsl(12px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(10px);
+    }
+  }
+
+  &--md {
+    @include fsl(16px);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+}

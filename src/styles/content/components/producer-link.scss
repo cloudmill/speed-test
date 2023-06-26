@@ -1,0 +1,40 @@
+.producer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: rem(50px);
+  @media (max-width: ($breakpoint - 1px)) {
+    height: rem(40px);
+  }
+
+  border: 2px solid color(borders);
+  border-radius: rem(42px);
+
+  &__text {
+    line-height: 100%;
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(14px);
+    }
+  }
+
+  &__icon {
+    margin-right: rem(8px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-right: rem(4px);
+    }
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__svg {
+    --size: #{rem(20px)};
+    @media (max-width: ($breakpoint - 1px)) {
+      --size: #{rem(16px)};
+    }
+
+    width: var(--size);
+    height: var(--size);
+  }
+}

@@ -1,0 +1,22 @@
+mixin accordion 
+  .accordion(data-accordion='')
+    .accordion__head(data-accordion-button='')
+      .accordion__title 
+        |#{attributes.title}
+      .accordion__buttons 
+        .only-desktop
+          a.accordion__download(href="#") 
+            .accordion__download-text 
+              |Скачать архивом
+            .accordion__download-icon 
+              +download-svg.accordion__download-svg
+        .accordion__icon 
+          +arrow-svg.accordion__svg
+    .accordion__body(data-accordion-dropdown='')
+      .only-mobile
+        a.accordion__download(href="#") 
+          .accordion__download-text 
+            |Скачать архивом
+          .accordion__download-icon 
+            +download-svg.accordion__download-svg
+      block

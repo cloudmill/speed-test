@@ -1,0 +1,7 @@
+mixin store 
+  a.store(href="#" target="_blank" class=attributes.class) 
+    .store__container 
+      +picture(src = attributes.img)
+    if (!attributes.noIcon)
+      .store__icon 
+        +full-arrow-svg.store__svg

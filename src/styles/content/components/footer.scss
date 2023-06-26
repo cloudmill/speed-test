@@ -1,0 +1,209 @@
+.footer {
+  $comp: &;
+
+  border-top: 2px solid color(borders);
+
+  &__inner {
+    padding: rem(100px) 0;
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: rem(32px) 0;
+    }
+
+    &.cut {
+      padding: rem(50px) 0;
+      @media (max-width: ($breakpoint - 1px)) {
+        padding: rem(16px) 0;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    @media (max-width: ($breakpoint - 1px)) {
+      display: block;
+    }
+
+    &--flex {
+      @media (max-width: ($breakpoint - 1px)) {
+        display: flex;
+        justify-content: space-between;
+
+        #{$comp}__col {
+          &:nth-child(2) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      width: calc(#{$col-part-d} * 6);
+      @media (max-width: ($breakpoint - 1px)) {
+        width: auto;
+      }
+    }
+    &:nth-child(2) {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap-d});
+      display: flex;
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-top: rem(12px);
+        width: auto;
+      }
+    }
+
+    &--grid {
+      &:nth-child(2) {
+        @media (max-width: ($breakpoint - 1px)) {
+          margin-top: rem(32px);
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          row-gap: rem(32px);
+          column-gap: $col-gap-m;
+        }
+        @media (max-width: ($breakpoint-m - 1px)) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__phone {
+    margin-bottom: rem(10px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: 0;
+      @include fsl(24px);
+    }
+    font-weight: 500;
+    @include fsl(40px, 120%);
+    transition: color $transition;
+    color: color(blue);
+
+    // &:hover {
+    // }
+  }
+
+  &__caption {
+    color: color(gray);
+    @include fsl(14px, 120%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(10px);
+    }
+  }
+
+  &__item {
+    @media (max-width: ($breakpoint-m - 1px)) {
+      margin-top: rem(32px);
+    }
+    flex-shrink: 0;
+    width: calc(#{$col-part-d} * 2);
+    @media (max-width: ($breakpoint - 1px)) {
+      width: auto;
+    }
+    &:last-child {
+      width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      @media (max-width: ($breakpoint - 1px)) {
+        width: auto;
+      }
+    }
+
+    &:first-child {
+      @media (max-width: ($breakpoint - 1px)) {
+        grid-row: span 2;
+      }
+      @media (max-width: ($breakpoint-m - 1px)) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__heading {
+    // color: color(gray);
+    font-weight: 500;
+    @include fsl(18px, 100%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(14px);
+    }
+  }
+
+  &__list {
+    margin-top: rem(24px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(16px);
+    }
+  }
+  &__list-item {
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: rem(16px);
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-top: rem(8px);
+      }
+    }
+  }
+
+  &__link {
+    color: color(gray);
+    transition: color $transition;
+
+    &:hover {
+      color: color(blue);
+    }
+  }
+
+  &__block {
+    margin-top: rem(75px);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: rem(32px);
+    }
+  }
+
+  &__btn {
+    margin-left: calc(#{$col-part-d} * 4);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-left: 0;
+
+      width: rem(120px);
+    }
+    display: flex;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__bot {
+    padding: rem(31px) 0;
+    border-top: 1px solid color(borders);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 0 rem(32px);
+      border-top: none;
+    }
+  }
+
+  &__corp {
+    @include fsl(14px, 120%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(10px);
+    }
+  }
+
+  &__made {
+    @include fsl(14px, 120%);
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(12px);
+    }
+  }
+  &__made-link {
+    color: color(blue);
+    transition: color $transition;
+
+    &:hover {
+      color: color(yellow-hover);
+    }
+  }
+}

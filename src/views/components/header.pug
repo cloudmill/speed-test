@@ -1,0 +1,53 @@
+mixin header
+  -
+    const nav = [
+      {
+        title: 'О холдинге',
+        arrow: true,
+        fancy: 'holding-menu'
+      },
+      {
+        title: 'Покупателю',
+        arrow: true,
+        fancy: 'clients-menu'
+      },
+      {
+        title: 'Партнерам и бизнесу',
+        arrow: true,
+        fancy: 'partners-menu'
+      },
+      {
+        title: 'Панорама 360',
+        arrow: false
+      },
+    ]
+
+  header.header
+    .container.header__container
+      .header__col.flex
+        img.header__logo(src='assets/images/svg/logo.svg', alt='')
+
+      .header__col
+        button.header__catalog-btn(data-fancy-button='catalog-menu')
+          span Каталог продукции
+          .header__catalog-btn-ico
+            +catalog-dots.header__catalog-btn-dots
+            +yellow-cross.header__catalog-btn-cross
+
+      .header__col
+        button.header__search-btn(data-fancy-button='search-modal')
+          +search
+
+      nav.header__col.header-nav
+        each item in nav
+          if item.arrow
+            button.header-nav__item(data-fancy-button=`${item.fancy}`)
+              span #{ item.title }
+              +drop-arrow
+
+          else
+            a.header-nav__item(href='')
+              span #{ item.title }
+
+      button.mob-menu(data-fancy-button='mobile-menu')
+        +burger
