@@ -1,16 +1,330 @@
 extends ../app
 
-
-
-block header
-block footer
-
-block grid-test
-
-
+include ../components/store
+include ../components/accordion
 
 block content
-  ul.index-list
-    each route in data.routes
-      li
-        a(href=route.href)= route.title
+  .clients-page
+    section.section.section--first.section--last
+      .container
+        .section__row
+          .section__col
+            +nav(
+              heading='Партнерам и бизнесу',
+              active=0,
+              links=['Клиентам', 'Поставщикам']
+            )
+          .section__col
+            +breadcrumbs(items=['Партнерам и бизнесу '], page='Клиентам')
+            h1.section__title
+              | Клиентам
+            .section__inner.section__inner--title
+              .clients-page__intro
+                .clients-page__intro-bg
+                  +picture.clients-page__intro-img(src='clients')
+                  +picture.clients-page__intro-img.tablet(
+                    src='clients-tablet'
+                  )
+                  +picture.clients-page__intro-img.mobile(
+                    src='clients-mobile'
+                  )
+                .clients-page__intro-container
+                  .clients-page__intro-top
+                    .clients-page__intro-col
+                      p.clients-page__intro-text
+                        | Булочно-кондитерский холдинг «Коломенский» начинает свою историю с 1956 года&nbsp; #[br] и на сегодняшний день включает в себя четыре площадки в Москве, Дедовске, Балашихе и Подольске.
+                    .clients-page__intro-col
+                      .clients-page__intro-heading
+                        | В холдинг входит #[br] 11 производственных площадок
+                  .clients-page__intro-bot
+                    .clients-page__intro-heading
+                      | Куда поставляем продукцию
+                    .clients-page__intro-grid
+                      .clients-page__intro-item
+                        .clients-page__intro-icon
+                          +clients-1-svg.clients-page__intro-svg 
+                        .clients-page__intro-caption
+                          | Государственные учреждения
+                      .clients-page__intro-item
+                        .clients-page__intro-icon
+                          +clients-2-svg.clients-page__intro-svg 
+                        .clients-page__intro-caption
+                          | Комбинаты социального и бортового питания
+                      .clients-page__intro-item
+                        .clients-page__intro-icon
+                          +clients-3-svg.clients-page__intro-svg 
+                        .clients-page__intro-caption
+                          | Кейтеринговые компании
+                      .clients-page__intro-item
+                        .clients-page__intro-icon
+                          +clients-4-svg.clients-page__intro-svg 
+                        .clients-page__intro-caption
+                          | Корпоративные столовые
+                      .clients-page__intro-item
+                        .clients-page__intro-icon
+                          +clients-5-svg.clients-page__intro-svg 
+                        .clients-page__intro-caption
+                          | Рестораны и кафе
+            .section.section--regular
+              .clients-page__docs
+                .clients-page__docs-col
+                  a.clients-page__docs-link(href='#', target='_blank')
+                    .clients-page__docs-bg
+                      .only-desktop
+                        +picture(src='clients-docs')
+                      .only-mobile
+                        +picture(src='clients-docs-mob')
+                    .clients-page__docs-content
+                      .clients-page__docs-heading
+                        | Презентация компании
+                      .clients-page__docs-label
+                        | PDF
+                    .clients-page__docs-btn
+                      +download-svg.clients-page__docs-svg
+                .clients-page__docs-col
+                  .clients-page__docs-text 
+                    p 
+                      |Мы обеспечиваем поставки продукции в 12000 магазинов ежедневно в любое время суток, а также по запросу можем разработать и выпустить&nbsp;продукцию под вашей маркой.
+                    p 
+                      |Для ежедневной непрерывной клиентской отгрузки используется свой распределительный центр.
+            .section.section--regular
+              h3.section__heading 
+                |Продукция короткого срока хранения
+              .clients-page__content
+                .clients-page__content-row 
+                  .clients-page__content-col
+                    .clients-page__content-categories 
+                      each item in ['Независимая розница', 'Самовывоз', 'Локальные сети']
+                        .clients-page__content-category 
+                          .category.category--gray.category--md
+                            |#{item}
+                    .clients-page__content-wrapper 
+                      .clients-page__content-text 
+                        p
+                          |БКХ «Коломенский» располагает мощностями для производства более 150 тонн кондитерских в сутки. Кондитерские изделия доставляют по всей России и в страны ближнего и дальнего зарубежья.
+                        p
+                          |Мы выпускаем исключительно натуральные и вкусные продукты-бестселлеры с понятным для потребителя составом. Хлебная продукция Холдинга входит в ТОП-20 хлебных продуктов рынка МСК и ЦФО, а благодаря инновационной логистике с Яндекс-маршрутизацией мы на ежедневной основе поставляем свою продукцию более, чем в 12 тысяч торговых точек.
+                      .clients-page__content-contacts
+                        .clients-page__content-heading 
+                          |Более подробную информацию вы можете узнать в отделе продаж
+                        .clients-page__content-grid 
+                          a.clients-page__content-item(href="tel:84994261905") 
+                            |8 499 426 19 05
+                            .clients-page__content-label 
+                              |доб. 0002
+                          a.clients-page__content-item(href="mailto:hlsale@mbkk.ru") 
+                            |hlsale@mbkk.ru
+                          a.clients-page__content-download(href="#") 
+                            .clients-page__content-caption 
+                              |Смотреть презентацию
+                            .clients-page__content-icon 
+                              +download-svg.clients-page__content-svg
+                  .clients-page__content-col
+                    +picture.clients-page__content-picture(src = 'clients-prod-1')
+                    .clients-page__content-contacts.tablet
+                      .clients-page__content-heading 
+                        |Более подробную информацию вы можете узнать в отделе продаж
+                      .clients-page__content-grid 
+                        a.clients-page__content-item(href="tel:84994261905") 
+                          |8 499 426 19 05
+                          .clients-page__content-label 
+                            |доб. 0002
+                        a.clients-page__content-item(href="mailto:hlsale@mbkk.ru") 
+                          |hlsale@mbkk.ru
+                        a.clients-page__content-download(href="#") 
+                          .clients-page__content-caption 
+                            |Смотреть презентацию
+                          .clients-page__content-icon 
+                            +download-svg.clients-page__content-svg
+            .section.section--regular
+              h3.section__heading 
+                |Продукция длительного срока хранения
+              .clients-page__content
+                .clients-page__content-row 
+                  .clients-page__content-col
+                    .clients-page__content-categories 
+                      each item in ['Дистрибьютерам']
+                        .clients-page__content-category 
+                          .category.category--gray.category--md
+                            |#{item}
+                    .clients-page__content-wrapper 
+                      .clients-page__content-text 
+                        p
+                          |БКХ «Коломенский» — лидер индустрии. Холдинг располагает мощностями для производства более 600 тонн хлебобулочных изделий в сутки. Продукция поставляется ежедневно в магазины Москвы и Московской области, а также в регионы Центрального федерального округа и Санкт-Петербурга.
+                        p
+                          |Мы используем только отборное экологически чистое сырье без искусственных добавок и консервантов. Выпускаемые холдингом вафельные торты под брендом «Шоколадница» - являются лидером по продажам в сегменте вафельных тортов, имеют лучшее ассортиментное предложение на рынке и завоевали своего постоянного потребителя благодаря непревзойденному вкусу, т.к производство придерживается традиций качества и используются ингредиенты высокого качества, а вафли выпекаются по уникальной технологии.
+                        p
+                          |Приобретая продукцию БКХ Коломенский, покупатель может быть уверенным в качестве, натуральности ингредиентов и настоящем вкусе любимых продуктов.
+                      .clients-page__content-contacts
+                        .clients-page__content-heading 
+                          |Более подробную информацию вы можете узнать в отделе продаж
+                        .clients-page__content-grid 
+                          a.clients-page__content-item(href="tel:84994261905") 
+                            |8 499 426 19 05
+                            .clients-page__content-label 
+                              |доб. 0001
+                          a.clients-page__content-item(href="mailto:konsale@mbkk.ru") 
+                            |konsale@mbkk.ru
+                          a.clients-page__content-download(href="#") 
+                            .clients-page__content-caption 
+                              |Смотреть презентацию
+                            .clients-page__content-icon 
+                              +download-svg.clients-page__content-svg
+                  .clients-page__content-col
+                    +picture.clients-page__content-picture(src = 'clients-prod')
+                    .clients-page__content-contacts.tablet
+                      .clients-page__content-heading 
+                        |Более подробную информацию вы можете узнать в отделе продаж
+                      .clients-page__content-grid 
+                        a.clients-page__content-item(href="tel:84994261905") 
+                          |8 499 426 19 05
+                          .clients-page__content-label 
+                            |доб. 0002
+                        a.clients-page__content-item(href="mailto:hlsale@mbkk.ru") 
+                          |hlsale@mbkk.ru
+                        a.clients-page__content-download(href="#") 
+                          .clients-page__content-caption 
+                            |Смотреть презентацию
+                          .clients-page__content-icon 
+                            +download-svg.clients-page__content-svg
+            .section.section--regular 
+              .map(data-real-tabs='')
+                .map__content
+                  .map__title.section__heading
+                    | География поставок&nbsp; #[br] продукции
+                  .map__tabs
+                    .tabs.tabs--scroll
+                      .tabs__item.active(data-tabs-item='')
+                        | Свежий хлеб
+                      .tabs__item(data-tabs-item='')
+                        | Кондитерские изделия
+                      .tabs__item(data-tabs-item='')
+                        | Замороженная продукция
+                .map__container
+                  .map__block.active(data-tabs-block='', data-pin-container='')
+                    picture.picture.map__img(data-pin-image='')
+                      source(
+                        srcset='assets/images/map-1.webp',
+                        type='image/webp'
+                      )
+                      img.picture__img(src='assets/images/map-1.jpeg', alt='')
+                  .map__block(data-tabs-block='', data-pin-container='')
+                    picture.picture.map__img(data-pin-image='')
+                      source(
+                        srcset='assets/images/map-2.webp',
+                        type='image/webp'
+                      )
+                      img.picture__img(src='assets/images/map-2.jpeg', alt='')
+                  .map__block(data-tabs-block='', data-pin-container='')
+                    picture.picture.map__img(data-pin-image='')
+                      source(
+                        srcset='assets/images/map-3.webp',
+                        type='image/webp'
+                      )
+                      img.picture__img(src='assets/images/map-3.jpeg', alt='')
+                  .map__icon
+                    +grab-svg.map__svg
+            .section.section--regular
+              .section__heading
+                | Работаем с федеральными сетями #[br] и основными игроками онлайн-торговли
+              .clients-page__stores
+                .clients-page__stores-block
+                  .clients-page__stores-heading
+                    | Федеральные сети РФ
+                  .clients-page__stores-grid
+                    each img in ['magnit', 'pyat', 'perekrestok', 'ashan', 'karusel', 'AV', 'lenta', 'metro', 'okey', 'dixi' ]
+                      +store.store--slider(img=img, noIcon)
+                .clients-page__stores-block
+                  .clients-page__stores-heading
+                    | Онлайн-магазины
+                  .clients-page__stores-grid
+                    - for (i = 0; i < 5; i++)
+                      +store.store--slider(img='magnit', noIcon)
+            .section.section--regular
+              +accordion(title='Перечень необходимых документов')
+                .accordion__wrapper.content
+                  ul
+                    each item in ['Устав (действующая на момент предоставления редакция)', 'Учредительный договор или Решение о создании юридического лица', 'Свидетельство о государственной регистрации юридического лица (либо свидетельство о внесении записи в единый государственный реестр юридических лиц о юридическом лице, зарегистрированном до 01.06.2002)', 'Выписка из единого государственного реестра юридических лиц (ЕГРЮЛ), полученная не ранее, чем за 30 дней до ее предоставления в ЗАО БКХ «Коломенский».', 'Протокол/Решение о назначении единоличного исполнительного органа (Генеральный директор, директор, Президент и проч.)']
+                      li
+                        a(href='#')
+                          | #{ item }
+            .section.section--regular
+              h3.section__heading
+                | Задать вопрос или оставить заявку #[br] на сотрудничество
+              form.clients-page__form(
+                action='/',
+                data-form='',
+                data-form-id='contact'
+              )
+                -
+                  var inputs = [
+                    {
+                      type: 'text',
+                      placeholder: 'Страна*'
+                    },
+                    {
+                      type: 'text',
+                      placeholder: 'Регион*'
+                    },
+                    {
+                      type: 'text',
+                      placeholder: 'ФИО*'
+                    },
+                    {
+                      type: 'text',
+                      placeholder: 'Телефон'
+                    },
+                    {
+                      type: 'email',
+                      placeholder: 'E-mail'
+                    },
+                  ]
+                .clients-page__form-grid
+                  .select-wrapper
+                    #company.select
+                      select.select__select(
+                        data-select-placeholder='Направленность компании',
+                        style='width: 100%',
+                        required,
+                        data-parsley-errors-container='#company',
+                        data-parsley-class-handler='#company'
+                      )
+                        option(value='', disabled, selected, label="placeholder")
+                        each item in ['Сети', 'HoReCa', 'Крупный опт', 'Государственные контракты', 'Ecom', ]
+                          option(value=item)
+                            | #{ item }
+                  each input in inputs 
+                    if (input.type === 'phone')
+                      +input(
+                        type=input.type,
+                        placeholder=input.placeholder,
+                        data-mask-phone=''
+                      )
+                    else
+                      +input(type=input.type, placeholder=input.placeholder)
+                .clients-page__form-item
+                  .select-wrapper
+                    #type.select
+                      select.select__select(
+                        data-select-placeholder='Тип доставки',
+                        style='width: 100%',
+                        required,
+                        data-parsley-errors-container='#type',
+                        data-parsley-class-handler='#type'
+                      )
+                        option(value='', disabled, selected, label="placeholder")
+                        each item in ['Самовывоз', 'Доставка в торговую точку', 'Доставка на РЦ Москвы и Московской области', 'Доставка в регион', ]
+                          option(value=item)
+                            | #{ item }
+                .clients-page__form-item
+                  +textarea(placeholder='Комментарий к заявке или вопрос')
+                .clients-page__form-inner
+                  .clients-page__form-file
+                  .clients-page__form-row
+                    .clients-page__form-check
+                    .clients-page__form-btn
+                      .button.button--wide-mobile
+                        .button__text 
+                          |Отправить
+                        .button__icon 
+                          +arrow-svg.button__svg.right
