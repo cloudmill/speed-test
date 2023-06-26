@@ -454,7 +454,7 @@
 											<div class="clients-page__form-grid">
 												<div class="select-wrapper">
 													<div class="select" id="company"><select class="select__select" data-select-placeholder="Направленность компании" style="width: 100%" required data-parsley-errors-container="#company" data-parsley-class-handler="#company">
-															<option value="" disabled="disabled" selected="selected"></option>
+															<option value="" disabled="disabled" selected="selected" label="placeholder"></option>
 															<option value="Сети">Сети</option>
 															<option value="HoReCa">HoReCa</option>
 															<option value="Крупный опт">Крупный опт</option>
@@ -481,7 +481,7 @@
 											<div class="clients-page__form-item">
 												<div class="select-wrapper">
 													<div class="select" id="type"><select class="select__select" data-select-placeholder="Тип доставки" style="width: 100%" required data-parsley-errors-container="#type" data-parsley-class-handler="#type">
-															<option value="" disabled="disabled" selected="selected"></option>
+															<option value="" disabled="disabled" selected="selected" label="placeholder"></option>
 															<option value="Самовывоз">Самовывоз</option>
 															<option value="Доставка в торговую точку">Доставка в торговую точку</option>
 															<option value="Доставка на РЦ Москвы и Московской области">Доставка на РЦ Москвы и Московской области</option>
@@ -495,26 +495,9 @@
 												</div>
 											</div>
 											<div class="clients-page__form-inner">
-												<div class="clients-page__form-file">
-													<div class="file-input" data-file=""><label class="file-input__label"><input class="file-input__input" type="file" multiple="multiple" accept=".doc,.docx,.pdf,.pages,.pttx,.ppt,.xlsx,.xls" data-file-input="">
-															<div class="file-input__icon"><svg class="file-input__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-																	<path fill-rule="evenodd" clip-rule="evenodd" d="M11.1194 5.45302L12.3069 6.62247L7.04177 11.9689C6.77758 12.2386 6.77758 12.6726 7.04177 12.9422C7.29248 13.1981 7.71129 13.1969 7.95932 12.9408L13.7521 7.05614C14.5978 6.19311 14.5978 4.8071 13.7521 3.94408C12.9453 3.12066 11.5176 3.13898 10.7269 3.94564L4.40411 10.3641C2.97661 11.8203 2.97661 14.1586 4.40411 15.6148C5.79028 17.0288 8.17152 17.0058 9.53605 15.6135L16.9102 8.12411L18.0978 9.29346L10.725 16.7814C8.71343 18.834 5.25873 18.8674 3.21393 16.7815C1.15111 14.6772 1.15111 11.3017 3.21536 9.19593L9.5381 2.77747C10.9743 1.31241 13.4754 1.28032 14.9426 2.77759C16.4232 4.28864 16.4232 6.71157 14.9412 8.22398L9.15188 14.1051C8.25632 15.03 6.75811 15.0342 5.85127 14.1086C4.95219 13.1909 4.95219 11.7202 5.85277 10.801L11.1194 5.45302Z" fill="#2D2C29"></path>
-																</svg></div>
-															<div class="file-input__text">Прикрепить файл</div>
-														</label>
-														<div class="file-input__allowed">Допустимое расширение файлов .doc, .docx, .pdf, .pages, .pttx, .ppt, .xlsx, .xls. Размер файла не более 10 мб</div>
-														<div class="file-input__files" data-file-files=""></div>
-													</div>
-												</div>
+												<div class="clients-page__form-file"></div>
 												<div class="clients-page__form-row">
-													<div class="clients-page__form-check">
-														<div class="checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox" required id="pol" checked="checked">
-																<div class="checkbox__box"><svg class="checkbox__svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																		<path fill-rule="evenodd" clip-rule="evenodd" d="M9.70711 14.2929L19 5L20.4142 6.41421L9.70711 17.1213L4 11.4142L5.41421 10L9.70711 14.2929Z" fill="#2D2C29"></path>
-																	</svg></div>
-																<div class="checkbox__text">Даю согласие на обработку <a class="checkbox__link" href="#">персональных данных</a></div>
-															</label></div>
-													</div>
+													<div class="clients-page__form-check"></div>
 													<div class="clients-page__form-btn">
 														<div class="button button--wide-mobile">
 															<div class="button__text">Отправить</div>
@@ -570,9 +553,11 @@
 						<div class="footer__block">
 							<div class="footer__row footer__row--flex">
 								<div class="footer__col">
-									<div class="footer__wrapper"><button class="button" data-fancy-button="ask-director">
+									<div class="footer__wrapper">
+										<div class="button" data-fancy-button="ask-director">
 											<div class="button__text">Задать вопрос директору</div>
-										</button></div>
+										</div>
+									</div>
 								</div>
 								<div class="footer__col">
 									<div class="footer__btn">

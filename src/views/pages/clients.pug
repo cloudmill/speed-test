@@ -289,7 +289,7 @@ block content
                         data-parsley-errors-container='#company',
                         data-parsley-class-handler='#company'
                       )
-                        option(value='', disabled, selected)
+                        option(value='', disabled, selected, label="placeholder")
                         each item in ['Сети', 'HoReCa', 'Крупный опт', 'Государственные контракты', 'Ecom', ]
                           option(value=item)
                             | #{ item }
@@ -312,7 +312,7 @@ block content
                         data-parsley-errors-container='#type',
                         data-parsley-class-handler='#type'
                       )
-                        option(value='', disabled, selected)
+                        option(value='', disabled, selected, label="placeholder")
                         each item in ['Самовывоз', 'Доставка в торговую точку', 'Доставка на РЦ Москвы и Московской области', 'Доставка в регион', ]
                           option(value=item)
                             | #{ item }
@@ -320,12 +320,8 @@ block content
                   +textarea(placeholder='Комментарий к заявке или вопрос')
                 .clients-page__form-inner
                   .clients-page__form-file
-                    +file-input(
-                      accept='.doc,.docx,.pdf,.pages,.pttx,.ppt,.xlsx,.xls'
-                    )
                   .clients-page__form-row
                     .clients-page__form-check
-                      +checkbox#pol(checked)
                     .clients-page__form-btn
                       .button.button--wide-mobile
                         .button__text 
