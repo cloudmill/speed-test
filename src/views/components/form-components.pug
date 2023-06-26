@@ -29,7 +29,7 @@ mixin select
     .select(class=attributes.class)
       select.select__select(data-select-placeholder=attributes.placeholder style='width: 100%' required=attributes.required)
         if (attributes.placeholder)
-          option(value='' disabled selected)
+          option(value='' disabled selected label="placeholder")
         each item in attributes.options
           option(value=item)
             |#{item}

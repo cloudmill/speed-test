@@ -271,7 +271,7 @@ block content
                       placeholder: 'ФИО*'
                     },
                     {
-                      type: 'phone',
+                      type: 'text',
                       placeholder: 'Телефон'
                     },
                     {
@@ -327,4 +327,8 @@ block content
                     .clients-page__form-check
                       +checkbox#pol(checked)
                     .clients-page__form-btn
-                      +button-icon.button--wide-mobile(text='Отправить')
+                      .button.button--wide-mobile
+                        .button__text 
+                          |Отправить
+                        .button__icon 
+                          +arrow-svg.button__svg.right

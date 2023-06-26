@@ -41,12 +41,11 @@ mixin footer
                   | Задать вопрос директору
             .footer__col
               .footer__btn
-                +button-icon.button--gray.button--wide-mobile(
-                  text='Наверх',
-                  data-scroll-up='',
-                  block
-                )
-                  +arrow-up-svg.button__svg
+                .button.button--gray.button--wide-mobile(data-scroll-up='')
+                  .button__text 
+                    |Наверх
+                  .button__icon 
+                    +arrow-up-svg.button__svg
     .footer__bot
       .container
         .footer__row
